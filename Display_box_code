@@ -1,0 +1,73 @@
+package Methods;
+import java.util.Scanner;
+public class DisplayBox {
+
+	public static void drawBar(int length)
+	{
+		for (int i = 0; i < length; i++)
+		{
+			System.out.print("*");
+		}
+		System.out.println();
+	}
+	public static void drawBar(int length, String c)
+	{
+		for (int i = 0; i < length; i++)
+		{
+			System.out.print(c);
+		}
+		System.out.println();
+	}
+
+	public static void drawBox (int length, int width)
+	{
+		for (int i = 1; i <= width; i++)
+		{
+			drawBar (length);
+		}
+	}
+
+	public static void drawBox (int length, int width, String userCharacter)
+	{
+		for (int i = 1; i <= width; i++)
+		{
+			drawBar (length, userCharacter);
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner input = new Scanner (System.in);
+
+		int length, width;
+		String userChar;
+		String userOption;
+
+		System.out.print("Enter the length of the box: ");
+		length = input.nextInt();
+		System.out.print("Enter the width of the box: ");
+		width = input.nextInt();
+
+		input.nextLine();
+
+		System.out.print("Would you like to use your own character? y or n? ");
+		userOption  = input.nextLine();
+
+
+		if (userOption.equals("y"))
+		{
+			System.out.print("Enter your character to use ");
+			userChar = input.nextLine();
+			drawBox (length, width, userChar);
+		}
+		else
+		{
+			drawBox(length, width);
+		}
+
+		input.close();
+
+	}
+
+}
